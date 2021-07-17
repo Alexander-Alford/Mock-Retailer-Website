@@ -1,0 +1,22 @@
+.header-comp-name{
+    font-size: 30px;
+    /* line-height: 30px; */
+    margin:0px;
+}
+
+.header{
+    color: white;
+}
+
+.header-piece-first{
+    background: #04009A;  
+}
+
+.header-piece-second{
+    background: #77ACF1;
+}
+
+.main-content{
+    background: #C0FEFC;
+    width: 75%;
+}
