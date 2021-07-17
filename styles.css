@@ -6,6 +6,8 @@
 
 .header{
     color: white;
+    margin: 0px;
+    padding: 0px;
 }
 
 .header-piece-first{
@@ -17,6 +19,18 @@
 }
 
 .main-content{
-    background: #C0FEFC;
-    width: 75%;
+    background: #3EDBF0;
+    /* width: 75%; */
+}
+
+.item-container{
+    width: 70%;
+}
+
+.image-size-force{
+    width:100%;
+}
+
+.navigation-bar{
+    background: #77ACF1;
 }
