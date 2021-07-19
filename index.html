@@ -18,19 +18,9 @@
 
     <body>
        
-        <!-- <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </p>
-          </div>
-        </div> -->
+        
 
-        <div class="container-fluid header" >
+        <div class="container-fluid header" id="header">
             <div class="row align-items-center header-piece-first">
                 <div class="col-8">
                     <h1 class="display-4 header-comp-name">Fordington</h1>
@@ -41,31 +31,13 @@
                     <button type="button" class="btn btn-outline-light btn-lg">Register</button>
                     <button type="button" class="btn btn-outline-light btn-lg">Sign In</button>
                 </div>
-            </div>
-        
-            <!-- <div class="navbar navbar-expand-lg header-piece-second">
-                <div class="container-fluid">
-                    <div class="row ">
-                        <button class="col btn btn-secondary">
-                        Filter
-                        </button>
-                        <button class="col btn btn-secondary">
-                        Items per Page
-                        </button>
-                        <button class="col btn btn-secondary">
-                        Test 3
-                        </button>
-                        <button class="col btn btn-secondary">
-                        Test 4
-                        </button>
-                        <button class="col btn btn-secondary">
-                        Test 5
-                        </button>
-                    </div>
+                <div class="col-1">
+                  <button type="button" class="btn btn-outline-light btn-lg"><i class="fas fa-shopping-cart"></i> 8</button>
                 </div>
-            </div> -->
+              </div>
+        
 
-            <nav class="navbar navbar-expand-lg navbar-dark navigation-bar">
+              <nav class="navbar navbar-expand-lg navbar-dark navigation-bar">
                 <div class="container-fluid  navigation-bar">
                     
 
@@ -115,43 +87,157 @@
         
         </div>
 
-
-        <div class="container-fluid main-content">
+        <div class="container-fluid" id="center-piece">
+          <div class="main-content">
+            
             <div class="item-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Fusce tempor ac urna et feugiat. Mauris consequat enim quis risus pharetra, egestas ullamcorper enim lobortis.
-                 Nam aliquam dapibus arcu id congue. Nam ullamcorper erat lorem, non pulvinar lectus eleifend nec. 
-                 Integer convallis in augue at venenatis. Ut gravida ultricies dolor. Nam ac velit imperdiet, pulvinar risus faucibus, cursus lectus. 
-                 Etiam maximus purus sit amet lorem ultricies lobortis. Etiam id urna quis metus pharetra cursus sit amet quis mi. 
-                 Etiam vestibulum erat non pellentesque gravida. </p>
-
-                 <p>Sed eu libero ut orci varius sollicitudin. Phasellus sit amet ligula ante. Sed auctor ex nunc, ac eleifend sapien tincidunt ac.
-                      Nullam id dolor id ipsum fermentum sodales ut at enim. Ut tincidunt feugiat ex, at rutrum lorem vehicula eu. 
-                      Proin lorem ligula, molestie id leo sed, cursus consectetur felis. Sed et sem faucibus mauris bibendum luctus. </p>
-
-                <p>Curabitur ex sapien, tincidunt eget nisi vitae, dignissim feugiat purus. Sed nisl massa, vehicula a leo sit amet, ornare pellentesque massa. 
-                    Sed ipsum erat, volutpat non odio id, convallis rhoncus justo. Nam commodo eros purus, blandit pretium lectus euismod sit amet. 
-                    Proin tincidunt in eros eu suscipit. Nulla eu magna elit. Praesent a ante ac quam fermentum hendrerit. Etiam malesuada erat nisi, in luctus nulla consequat sed. 
-                    Curabitur condimentum, eros a iaculis eleifend, mauris ante congue velit, non fermentum est mauris eget nisi. Etiam sit amet vehicula metus. 
-                    Proin convallis ultrices tortor, nec vestibulum tellus iaculis at. Maecenas eget scelerisque lorem. </p>      
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+              Fusce tempor ac urna et feugiat. Mauris consequat enim quis risus pharetra, egestas ullamcorper enim lobortis.
+               Nam aliquam dapibus arcu id congue. Nam ullamcorper erat lorem, non pulvinar lectus eleifend nec. 
+               Integer convallis in augue at venenatis. Ut gravida ultricies dolor. Nam ac velit imperdiet, pulvinar risus faucibus, cursus lectus. 
+               Etiam maximus purus sit amet lorem ultricies lobortis. Etiam id urna quis metus pharetra cursus sit amet quis mi. 
+               Etiam vestibulum erat non pellentesque gravida. </p>  
             </div>
             
-            <div class="card" style="width: 18rem;">
-                <img src="https://picsum.photos/200" class="card-img-top image-size-force" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Product Name</h5>
-                    <p class="card-text">
-                        <i class="fas fa-star" style="color: orange"></i>
-                        <i class="fas fa-star" style="color: orange"></i>
-                        <i class="fas fa-star" style="color: orange"></i>
-                        <i class="fas fa-star" style="color: orange"></i>
-                        <i class="fas fa-star" style="color: orange"></i>
-                    </p>
-                    <p class="card-text">$8.99</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+          
+            <div class="row card-pack">
+              
+              <div class="col">  
+                <div class="card card-sizing">
+                  <img src="https://picsum.photos/200" class="card-img-top image-size-force" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product Name</h5>
+                      <p class="card-text" style="color: orange">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </p>
+                      <p class="card-text">$8.99</p>
+                      <a class="" href="#">4 reviews</a>
+                      <a href="#" class="btn btn-primary">See more</a>
+                  </div>
                 </div>
-              </div>
+              </div>    
+                
+              <div class="col">  
+                <div class="card card-sizing">
+                  <img src="https://picsum.photos/200" class="card-img-top image-size-force" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product Name</h5>
+                      <p class="card-text" style="color: orange">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </p>
+                      <p class="card-text">$8.99</p>
+                      <a class="" href="#">4 reviews</a>
+                      <a href="#" class="btn btn-primary">See more</a>
+                  </div>
+                </div>
+              </div> 
+              
+              <div class="col">  
+                <div class="card card-sizing">
+                  <img src="https://picsum.photos/200" class="card-img-top image-size-force" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product Name</h5>
+                      <p class="card-text" style="color: orange">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </p>
+                      <p class="card-text">$8.99</p>
+                      <a class="" href="#">4 reviews</a>
+                      <a href="#" class="btn btn-primary">See more</a>
+                  </div>
+                </div>
+              </div> 
 
+              <div class="col">  
+                <div class="card card-sizing">
+                  <img src="https://picsum.photos/200" class="card-img-top image-size-force" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product Name</h5>
+                      <p class="card-text" style="color: orange">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </p>
+                      <p class="card-text">$8.99</p>
+                      <a class="" href="#">4 reviews</a>
+                      <a href="#" class="btn btn-primary">See more</a>
+                  </div>
+                </div>
+              </div> 
+
+              <div class="col">  
+                <div class="card card-sizing">
+                  <img src="https://picsum.photos/200" class="card-img-top image-size-force" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product Name</h5>
+                      <p class="card-text" style="color: orange">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </p>
+                      <p class="card-text">$8.99</p>
+                      <a class="" href="#">4 reviews</a>
+                      <a href="#" class="btn btn-primary">See more</a>
+                  </div>
+                </div>
+              </div> 
+
+              <div class="col">  
+                <div class="card card-sizing">
+                  <img src="https://picsum.photos/200" class="card-img-top image-size-force" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product Name</h5>
+                      <p class="card-text" style="color: orange">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </p>
+                      <p class="card-text">$8.99</p>
+                      <a class="" href="#">4 reviews</a>
+                      <a href="#" class="btn btn-primary">See more</a>
+                  </div>
+                </div>
+              </div> 
+
+              <div class="col">  
+                <div class="card card-sizing">
+                  <img src="https://picsum.photos/200" class="card-img-top image-size-force" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Product Name</h5>
+                      <p class="card-text" style="color: orange">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </p>
+                      <p class="card-text">$8.99</p>
+                      <a class="" href="#">4 reviews</a>
+                      <a href="#" class="btn btn-primary">See more</a>
+                  </div>
+                </div>
+              </div> 
+              
+              
+            </div>    
+          </div>
         </div>
         
 

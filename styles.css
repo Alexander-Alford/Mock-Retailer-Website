@@ -18,13 +18,19 @@
     background: #77ACF1;
 }
 
-.main-content{
+#center-piece{
     background: #3EDBF0;
-    /* width: 75%; */
+}
+
+.main-content{
+    margin: auto;
+    padding: 0px;
+    max-width: 1900px; 
 }
 
 .item-container{
     width: 70%;
+    margin: auto;
 }
 
 .image-size-force{
@@ -33,4 +39,16 @@
 
 .navigation-bar{
     background: #77ACF1;
+}
+
+.card-sizing{
+     margin: 20px 0px; 
+    /* width: 18%; */
+    min-width: 18rem;
+    max-width: 23rem;
+}
+
+.card-pack{
+    margin: 0px 100px;
+    padding: 0px;
 }
