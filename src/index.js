@@ -33,7 +33,7 @@ app.listen(port, () => {
 
 
 //Beginning of database setup.
-var mongoDB = "mongodb+srv://admin-aa:test123@prototypecluster.rbkx4.mongodb.net/products";
+var mongoDB = "mongodb+srv://prototypecluster.rbkx4.mongodb.net/products";
 const productCollection = 'collection';
 
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
