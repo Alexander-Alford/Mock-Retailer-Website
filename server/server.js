@@ -1,11 +1,10 @@
-
+//jshint esversion:6
 console.log("This is a test.")
 
-
+//Required mondules.
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
 
 const app = express();
 
@@ -23,6 +22,7 @@ const productCollection = 'collection';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 var db = mongoose.connection;
+var collectionData;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.on('disconnected', () => {
@@ -30,6 +30,7 @@ db.on('disconnected', () => {
 });
 db.once("open", () => {
     console.log("MongoDB database connection established.");
+
 })
 
  const productSchema = new mongoose.Schema({
@@ -47,30 +48,23 @@ const productModel = mongoose.model('Product', productSchema, productCollection)
 
 productModel.find((err, products) => {
     if (err) return console.error(err);
-    // console.log(products);
+    
+    collectionData = products;
 })
 //End of database setup.
 
 
 //Beginning of server setup.
-let port = process.env.PORT;
-
-if(port == null || port == ""){
-    port = 3000;
-}
+let port = process.env.PORT || 3001;
 
 
-app.route('/')
-
-
-.get(function(req, res){
-
-      res.send('index.html'); 
-})
+app.get("/api", (req, res) => {
+      res.json(collectionData); 
+});
 
 
 app.listen(port, () => {
-    console.log("Server is running on port " + port);
+    console.log('Server is running on port ' + port);
 });
 //Emd of server setup.
 
