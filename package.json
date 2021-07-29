@@ -1,14 +1,21 @@
 {
-  "name": "src",
+  "name": "retailerwebsite",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "A mock retail website.",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexander-Alford/Mock-Retailer-Website.git"
+  },
+  "author": "Alexander Alford",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexander-Alford/Mock-Retailer-Website/issues"
+  },
+  "homepage": "https://github.com/Alexander-Alford/Mock-Retailer-Website#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
