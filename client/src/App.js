@@ -1,5 +1,9 @@
 import React from "react";
-//import './App.css'; 
+//import './App.css';
+import GenerateCard from './genCard.js';
+
+
+//<Card product={data[1]} />
 
 function App() {
   
@@ -16,9 +20,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          {!data ? "Loading..." : data[1]["name"]}
-        </p>
+        
+		{(!data) ? "Loading..." : <GenerateCard product={data[1]} />}
+			
+			
+			
+			 
+			
+		  
+        
        
       </header>
     </div>
