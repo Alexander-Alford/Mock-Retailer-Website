@@ -1,7 +1,6 @@
 import React from "react";
 //import './App.css';
-import GenerateCard from './genCard.js';
-
+import GenerateCardTable from './genCard.js';
 
 //<Card product={data[1]} />
 
@@ -18,20 +17,22 @@ function App() {
   
   
   return (
-    <div className="App">
-      <header className="App-header">
+    
+      
         
-		{(!data) ? "Loading..." : <GenerateCard product={data[1]} />}
+		
+		<div className="container-fluid" id="center-piece">
+          <div className="main-content">
+			{(!data) ? "Loading..." : <GenerateCardTable productCollection={data} catalogNumberStart={1} numToLoad={5} />}
+		  </div>	
+		</div>
 			
-			
-			
-			 
 			
 		  
         
        
-      </header>
-    </div>
+    
+ 
   );
 }
 

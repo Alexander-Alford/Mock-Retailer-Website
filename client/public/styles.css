@@ -46,7 +46,13 @@
     /* width: 18%; */
     min-width: 18rem;
     max-width: 23rem;
+	height: 300px;
 }
+
+.card-img{
+	width: 100%;
+}
+
 
 .card-pack{
     margin: 0px 100px;
