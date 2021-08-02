@@ -34,7 +34,7 @@ function GenerateCard(props)
 	
 	console.log(product);
 	
-	return (<div className="col">  
+	return (<div className="col col-sizing">  
         <div className="card card-sizing">
             <img src={product["image-url"]} className="card-img-top card-img" alt="..." />
             <div className="card-body">
