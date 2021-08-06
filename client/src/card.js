@@ -1,4 +1,7 @@
 import React from "react";
+import {Cart, AddToCart, RemoveFromCart} from './cart.js';
+
+
 
 //Funciton generates 5-star review icons based on review score.
 function GenerateStars(props){
@@ -27,6 +30,8 @@ function GenerateStars(props){
 	return <div>{stars}</div>;
 }
 
+
+
 function GenerateCard(props)
 {
 	
@@ -36,8 +41,10 @@ function GenerateCard(props)
 	
 	return (<div className="col col-sizing">  
         <div className="card card-sizing">
-            <img src={product["image-url"]} className="card-img-top card-img" alt="..." />
-            <div className="card-body">
+			<div className="text-center card-img-top" style={{height: "250px"}}>
+				<img src={product["image-url"]} className="card-img" alt="..." />
+            </div>
+			<div className="card-body text-center empty-display">
                 <h5 className="card-title">{product.name}</h5>
 					<span className="card-text" style={{color: "orange"}}>
                         <GenerateStars score={product["review-score"]} />
@@ -45,14 +52,17 @@ function GenerateCard(props)
                     <div className="card-text">${product.price.toFixed(2)}</div>
                     <div className="" >Qty: {product.quantity}</div>
 					<br />
-                <button href="#" className="btn btn-primary">See more</button>
+					<div style={{display: "flex", "justify-content": "space-around"}}>
+						<button className="btn btn-primary" onClick={() => RemoveFromCart(product["product-id"])}>See more</button>
+						<button className="btn btn-success" onClick={() => AddToCart(product["product-id"])}>Add to Cart</button>
+					</div>
             </div>
         </div>
     </div>);
 }
 
-function GenerateCardTable(props)
-{
+function CardTable(props)
+{	
 	const products = props.productCollection;
 	const start = props.catalogNumberStart;
 	const num = props.numToLoad;
@@ -71,4 +81,4 @@ function GenerateCardTable(props)
 }
 
 
-export default GenerateCardTable;
+export default CardTable;

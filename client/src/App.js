@@ -1,11 +1,12 @@
 import React from "react";
-//import './App.css';
-import GenerateCardTable from './card.js';
+import CardTable from './card.js';
 import Header from './header.js';
 
-//<Card product={data[1]} />
+
 
 function App() {
+  
+  //Add another data set that is read/writable for username/password.
   
     const [data, setData] = React.useState(null);
   
@@ -16,15 +17,27 @@ function App() {
     }, []);
   
   
+	var flags = {
+		isSignedIn: false,
+		userName: "",
+		numberOfCartItems: 5,
+		productPageNumber: 0,
+		websiteState: "Product Showcase",
+		catalogStartIndex: 1,
+		catalogLoadNum: 8
+	};
+  
+    
+  
   
   return (
     
       <div id="application">
-        <Header />
+        <Header state={flags.websiteState} numInCart={flags.numberOfCartItems} />
 		
 		<div className="container-fluid" id="center-piece">
           <div className="main-content">
-			{(!data) ? "Loading..." : <GenerateCardTable productCollection={data} catalogNumberStart={1} numToLoad={8} />}
+			{(!data) ? "Loading..." : <CardTable productCollection={data} catalogNumberStart={flags.catalogStartIndex} numToLoad={flags.catalogLoadNum} />}
 		  </div>	
 		</div>
 			
@@ -36,5 +49,6 @@ function App() {
 	</div>
   );
 }
+
 
 export default App;

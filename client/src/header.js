@@ -2,54 +2,64 @@ import React from "react";
 
 function Navbar(props)
 {
+	if((props.state === "Product Showcase")){
 	return(
-	<nav class="navbar navbar-expand-lg navbar-dark navigation-bar">
-        <div class="container-fluid  navigation-bar">
+	<nav className="navbar navbar-expand-lg navbar-dark navigation-bar">
+        <div className="container-fluid  navigation-bar">
             
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Mammals</a>
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+						
+						 <li className="nav-item">
+                        <a className="nav-link active" href="#">All</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" href="#">Reptiles</a>
+                      <li className="nav-item">
+                        <a className="nav-link active" href="#">Mammals</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" href="#">Fish</a>
+                      <li className="nav-item">
+                        <a className="nav-link active" href="#">Reptiles</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" href="#">Birds</a>
+                      <li className="nav-item">
+                        <a className="nav-link active" href="#">Fish</a>
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <li className="nav-item">
+                        <a className="nav-link active" href="#">Birds</a>
+                      </li>
+					   <li className="nav-item">
+                        <a className="nav-link active" href="#">Insects</a>
+                      </li>
+					   <li className="nav-item">
+                        <a className="nav-link active" href="#">Products</a>
+                      </li>
+                      <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Order
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">From least expensive</a></li>
-                          <li><a class="dropdown-item" href="#">From most expensive</a></li>
-                          <li><hr class="dropdown-divider" /></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a className="dropdown-item" href="#">From least expensive</a></li>
+                          <li><a className="dropdown-item" href="#">From most expensive</a></li>
+                          <li><hr className="dropdown-divider" /></li>
+                          <li><a className="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Display
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">10 Items</a></li>
-                          <li><a class="dropdown-item" href="#">20 Items</a></li>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a className="dropdown-item" href="#">10 Items</a></li>
+                          <li><a className="dropdown-item" href="#">20 Items</a></li>
                           <li>
-                            <a class="dropdown-item" href="#">
-                              <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" />
-                              <label class="" for="danger-outlined">30 Items</label>
+                            <a className="dropdown-item" href="#">
+                              <input type="radio" className="btn-check" name="options-outlined" id="success-outlined" autoComplete="off" />
+                              <label className="" for="danger-outlined">30 Items</label>
                             </a>
                           </li>
                           <li>
                             
-                              <input type="radio" class="dropdown-item btn-check " name="options-outlined" id="success" autocomplete="off" checked />
-                              <label class="btn btn-outline-success" for="success-outlined">40 Items</label>
+                              <input type="radio" className="dropdown-item btn-check " name="options-outlined" id="success" autoComplete="off" checked />
+                              <label className="btn btn-outline-success" for="success-outlined">40 Items</label>
                             
                           </li>
 
@@ -58,39 +68,68 @@ function Navbar(props)
                       
 
                     </ul>
-                    <form class="d-flex">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form className="d-flex">
+                      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="product-search" />
+                      <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
                   </div>
                 </div>
               </nav>
-	
-	
-	
-	);
+			);
+		}	
+		
+	return null;	
 }
 
-function Header()
+function SignRegister(props)
 {
-	return (
-<div class="container-fluid header" id="header">
-	<div class="row align-items-center header-piece-first">
-                <div class="col-8">
-                    <h1 class="display-4 header-comp-name">Fordington</h1>
-                    <h2 class="lead">Your first delivery option.</h2>
-                </div>
+	if(props.state === "Product Showcase")
+	{
+		return (
+			<div className="col-2 btn-group justify-content-end">
+                <button type="button" className="btn btn-outline-light btn-lg">Register</button>
+                <button type="button" className="btn btn-outline-light btn-lg">Sign In</button>
+            </div>);
+	}
+	
+	return null;
+}
 
-                <div class="col-2 btn-group justify-content-end">
-                    <button type="button" class="btn btn-outline-light btn-lg">Register</button>
-                    <button type="button" class="btn btn-outline-light btn-lg">Sign In</button>
-                </div>
-                <div class="col-1">
-                  <button type="button" class="btn btn-outline-light btn-lg"><i class="fas fa-shopping-cart"></i> 8</button>
-                </div>
-              </div>
-			  
-			<Navbar />  
+function Cart(props)
+{
+	
+	if(props.state === "Product Showcase")
+	{
+		return(
+			<div className="col-1">
+				<button type="button" className="btn btn-outline-light btn-lg"><i className="fas fa-shopping-cart"></i> {props.numInCart}</button>
+			</div>);
+	}
+	
+	return null;
+}
+
+function Header(props)
+{	
+	
+	
+
+	
+	
+	return (
+<div className="container-fluid header" id="header">
+	<div className="row align-items-center header-piece-first">
+        <div className="col-8">
+            <h1 className="display-4 header-comp-name">Fordington</h1>
+            <h2 className="lead">Your first delivery option.</h2>
+        </div>
+			<SignRegister state={props.state} />	
+			<Cart state={props.state} numInCart={props.numInCart} />
+    </div>
+	
+		
+			<Navbar state={props.state} />    
+				
 </div>
 	);
 }
