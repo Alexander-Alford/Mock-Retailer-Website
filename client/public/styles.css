@@ -1,3 +1,12 @@
+html,body{
+	height: 100%;
+}
+
+#root, #application{
+	height:100%;
+	width: 100%
+}
+
 .header-comp-name{
     font-size: 30px;
     /* line-height: 30px; */
@@ -20,6 +29,10 @@
 
 #center-piece{
     background: #3EDBF0;
+}
+
+#application{
+	 background: #3EDBF0;
 }
 
 .main-content{
@@ -69,4 +82,13 @@
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
+}
+
+.footer{
+	text-align: center;
+	background: #F0EBCC;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: static;
 }

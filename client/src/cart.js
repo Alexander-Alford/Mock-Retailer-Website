@@ -1,7 +1,19 @@
+import React, {useState, useEffect} from "react";
+import {flags} from './App.js';
 
 export var Cart = {
 	
 };
+
+function CartItemsNumber()
+{
+	let ret = 0;
+	
+	Object.entries(Cart).forEach(([key, val]) => ret += val); 
+	
+	return ret;
+}
+
 
 export function AddToCart(id)
 {
@@ -12,6 +24,12 @@ export function AddToCart(id)
 	
 	Cart[id]++;
 	
+	flags.numberOfCartItems = CartItemsNumber();
+	
+	const elem = document.getElementById("cart");
+	elem.innerHTML = flags.numberOfCartItems;
+	
+	console.log(flags.numberOfCartItems);
 	console.log(Cart);
 }
 
@@ -28,5 +46,14 @@ export function RemoveFromCart(id)
 	else
 	{
 	Cart[id]--;	
-	}	
+	}
+
+	flags.numberOfCartItems = CartItemsNumber();
+
+	const elem = document.getElementById("cart");
+	elem.innerHTML = flags.numberOfCartItems;
 }
+
+
+
+export default CartItemsNumber;

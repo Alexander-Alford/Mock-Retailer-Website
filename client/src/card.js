@@ -63,9 +63,14 @@ function GenerateCard(props)
 
 function CardTable(props)
 {	
+	const state = props.flags.websiteState;
+
+
+	if(state === "Product Showcase")
+	{
 	const products = props.productCollection;
-	const start = props.catalogNumberStart;
-	const num = props.numToLoad;
+	const start = props.flags.catalogStartIndex;
+	const num = props.flags.catalogLoadNum;
 
 	let ret = [];
 
@@ -77,7 +82,9 @@ function CardTable(props)
 	return  (<div className="row card-pack" id="productDisplay">
 				{ret}
 			</div>);
+	}
 	
+	return null;
 }
 
 

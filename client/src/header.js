@@ -1,4 +1,7 @@
 import React from "react";
+import {flags} from './App.js';
+import CartItemsNumber from './cart.js';
+import {Cart} from './cart.js';
 
 function Navbar(props)
 {
@@ -95,14 +98,17 @@ function SignRegister(props)
 	return null;
 }
 
-function Cart(props)
+function CartDisplay(props)
 {
 	
 	if(props.state === "Product Showcase")
 	{
 		return(
 			<div className="col-1">
-				<button type="button" className="btn btn-outline-light btn-lg"><i className="fas fa-shopping-cart"></i> {props.numInCart}</button>
+				<button type="button" className="btn btn-outline-light btn-lg">
+					<i className="fas fa-shopping-cart"></i>
+					<span id="cart" style={{marginLeft: "10px"}}>{props.numInCart}</span>
+				</button>
 			</div>);
 	}
 	
@@ -113,7 +119,8 @@ function Header(props)
 {	
 	
 	
-
+	const state = props.flags.websiteState;
+	const numInCart = props.flags.numberOfCartItems;
 	
 	
 	return (
@@ -123,12 +130,12 @@ function Header(props)
             <h1 className="display-4 header-comp-name">Fordington</h1>
             <h2 className="lead">Your first delivery option.</h2>
         </div>
-			<SignRegister state={props.state} />	
-			<Cart state={props.state} numInCart={props.numInCart} />
+			<SignRegister state={state} />	
+			<CartDisplay state={state} numInCart={numInCart} />
     </div>
 	
 		
-			<Navbar state={props.state} />    
+			<Navbar state={state} />    
 				
 </div>
 	);

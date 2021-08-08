@@ -1,8 +1,20 @@
 import React from "react";
 import CardTable from './card.js';
 import Header from './header.js';
+import Footer from './footer.js';
+import SignOnPage from './signOn';
 
 
+
+export var flags = {
+		isSignedIn: false,
+		userName: "",
+		numberOfCartItems: 0,
+		productPageNumber: 0,
+		websiteState: "Product Showcase",
+		catalogStartIndex: 1,
+		catalogLoadNum: 8
+	};
 
 function App() {
   
@@ -16,34 +28,23 @@ function App() {
         .then((data) => setData(data));
     }, []);
   
-  
-	var flags = {
-		isSignedIn: false,
-		userName: "",
-		numberOfCartItems: 5,
-		productPageNumber: 0,
-		websiteState: "Product Showcase",
-		catalogStartIndex: 1,
-		catalogLoadNum: 8
-	};
-  
     
   
-  
-  return (
+return (
     
-      <div id="application">
-        <Header state={flags.websiteState} numInCart={flags.numberOfCartItems} />
+    <div id="application">
+        <Header flags={flags} />
 		
 		<div className="container-fluid" id="center-piece">
           <div className="main-content">
-			{(!data) ? "Loading..." : <CardTable productCollection={data} catalogNumberStart={flags.catalogStartIndex} numToLoad={flags.catalogLoadNum} />}
-		  </div>	
+			{(!data) ? "Loading..." : <CardTable productCollection={data} flags={flags}/>}
+		  
+		  <SignOnPage flags={flags}/>
+		  </div>
 		</div>
 			
-			
 		  
-        
+    <Footer flags={flags}/>    
        
     
 	</div>
