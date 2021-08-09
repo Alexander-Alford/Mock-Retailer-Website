@@ -55,5 +55,16 @@ export function RemoveFromCart(id)
 }
 
 
+function CartPage(props)
+{
+
+	return(
+	null
+	);
+	
+}
+
+
+
 
 export default CartItemsNumber;

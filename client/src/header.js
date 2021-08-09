@@ -2,6 +2,15 @@ import React from "react";
 import {flags} from './App.js';
 import CartItemsNumber from './cart.js';
 import {Cart} from './cart.js';
+import {RenderApp} from './index.js';
+
+
+function GoToSignOnPage()
+{
+	flags.websiteState = "Sign On";
+	RenderApp();
+}
+
 
 function Navbar(props)
 {
@@ -79,6 +88,14 @@ function Navbar(props)
                 </div>
               </nav>
 			);
+		}
+		else if(props.state === "Sign On")
+		{
+			return(
+			<div className="container-fluid  sign-in-bar">
+			Sign In
+			</div>
+			);	
 		}	
 		
 	return null;	
@@ -91,10 +108,18 @@ function SignRegister(props)
 		return (
 			<div className="col-2 btn-group justify-content-end">
                 <button type="button" className="btn btn-outline-light btn-lg">Register</button>
-                <button type="button" className="btn btn-outline-light btn-lg">Sign In</button>
+                <button type="button" className="btn btn-outline-light btn-lg" onClick={()=>{GoToSignOnPage()}}>Sign In</button>
             </div>);
 	}
-	
+	else if(props.state === "Sign On")
+	{
+		return(
+			<div className="col-3 btn-group justify-content-end">
+                <button type="button" className="btn btn-outline-light btn-lg" style={{padding: "0px"}}>Don't have an account? <br /> Register</button>
+            </div>
+		);
+	}
+
 	return null;
 }
 

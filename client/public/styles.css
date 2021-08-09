@@ -92,3 +92,20 @@ html,body{
 	right: 0;
 	position: static;
 }
+
+.sign-in-bar{
+	background: #77ACF1;
+	font-size: 20px;
+	padding: 10px 0px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.sign-in-form{
+	max-width: 500px;
+	margin: 0px auto;
+	background: #F0EBCC;
+	padding: 10px;
+	border-radius: 5px;
+	height: 100%;
+}
