@@ -1,22 +1,18 @@
 import React from "react";
-import {flags} from './App.js';
+import {flags, ChangePage} from './App.js';
 import CartItemsNumber from './cart.js';
 import {Cart} from './cart.js';
-import {RenderApp} from './index.js';
+import {NavbarCatalogSelector} from './http.js';
 
 
-function GoToSignOnPage()
-{
-	flags.websiteState = "Sign On";
-	RenderApp();
-}
+
 
 
 function Navbar(props)
 {
 	if((props.state === "Product Showcase")){
 	return(
-	<nav className="navbar navbar-expand-lg navbar-dark navigation-bar">
+	<nav className="navbar navbar-expand-lg navbar-dark navigation-bar" style={{width: "100%"}}>
         <div className="container-fluid  navigation-bar">
             
                   <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -27,7 +23,7 @@ function Navbar(props)
                         <a className="nav-link active" href="#">All</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" href="#">Mammals</a>
+                        <button className="nav-link active" onClick={() => {NavbarCatalogSelector("mammal")}}>Mammals</button>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link active" href="#">Reptiles</a>
@@ -89,11 +85,11 @@ function Navbar(props)
               </nav>
 			);
 		}
-		else if(props.state === "Sign On")
+		else if(props.state === "Sign On" || props.state === "Register")
 		{
 			return(
-			<div className="container-fluid  sign-in-bar">
-			Sign In
+			<div className="container-fluid  sign-register-bar">
+			{(props.state === "Sign On") ? "Sign in" : "Register"} 
 			</div>
 			);	
 		}	
@@ -107,15 +103,16 @@ function SignRegister(props)
 	{
 		return (
 			<div className="col-2 btn-group justify-content-end">
-                <button type="button" className="btn btn-outline-light btn-lg">Register</button>
-                <button type="button" className="btn btn-outline-light btn-lg" onClick={()=>{GoToSignOnPage()}}>Sign In</button>
+                <button type="button" className="btn btn-outline-light btn-lg" onClick={()=>{ChangePage("Register")}}>Register</button>
+                <button type="button" className="btn btn-outline-light btn-lg" onClick={()=>{ChangePage("Sign On")}}>Sign In</button>
             </div>);
 	}
+	
 	else if(props.state === "Sign On")
 	{
 		return(
 			<div className="col-3 btn-group justify-content-end">
-                <button type="button" className="btn btn-outline-light btn-lg" style={{padding: "0px"}}>Don't have an account? <br /> Register</button>
+                <button type="button" className="btn btn-outline-light btn-lg" style={{padding: "0px"}} onClick={()=>{ChangePage("Register")}}>Don't have an account? <br /> Register</button>
             </div>
 		);
 	}
@@ -130,7 +127,7 @@ function CartDisplay(props)
 	{
 		return(
 			<div className="col-1">
-				<button type="button" className="btn btn-outline-light btn-lg">
+				<button type="button" className="btn btn-outline-light btn-lg" onClick={() => {ChangePage("Cart")}}>
 					<i className="fas fa-shopping-cart"></i>
 					<span id="cart" style={{marginLeft: "10px"}}>{props.numInCart}</span>
 				</button>
@@ -150,8 +147,8 @@ function Header(props)
 	
 	return (
 <div className="container-fluid header" id="header">
-	<div className="row align-items-center header-piece-first">
-        <div className="col-8">
+	<div className="row align-items-center header-piece-first" style={{margin: "0px 0px"}}>
+        <div className="col-8" id="branding">
             <h1 className="display-4 header-comp-name">Fordington</h1>
             <h2 className="lead">Your first delivery option.</h2>
         </div>

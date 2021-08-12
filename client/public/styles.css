@@ -16,7 +16,7 @@ html,body{
 .header{
     color: white;
     margin: 0px;
-    padding: 0px;
+    padding: 0px; 
 }
 
 .header-piece-first{
@@ -55,7 +55,7 @@ html,body{
 }
 
 .card-sizing{
-     margin: 20px 0px; 
+     margin: 20px auto; 
     /* width: 18%; */
     min-width: 18rem;
     max-width: 18rem;
@@ -93,9 +93,9 @@ html,body{
 	position: static;
 }
 
-.sign-in-bar{
+.sign-register-bar{
 	background: #77ACF1;
-	font-size: 20px;
+	font-size: 25px;
 	padding: 10px 0px;
 	margin-bottom: 30px;
 	text-align: center;
@@ -108,4 +108,22 @@ html,body{
 	padding: 10px;
 	border-radius: 5px;
 	height: 100%;
+}
+
+#branding{
+	margin-left: 7px;
+}
+
+.cart-list{
+	width: 50%;
+	margin: 15px auto;
+}
+
+.cart-page-btn{
+	width: 32px;
+	border-radius: 20px;
+}
+
+.cart-list-piece{
+	width: 200px;
 }

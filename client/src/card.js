@@ -22,10 +22,6 @@ function GenerateStars(props){
 	stars.push(<i key={i} className="fas fa-star-half"></i>);
 	}
 	
-	//for(let i = (score/2 + score%2); i < 5; i++)
-	//{
-	//stars.push(<i className="far fa-star"></i>);	
-	//}
 
 	return <div>{stars}</div>;
 }
@@ -35,12 +31,12 @@ function GenerateStars(props){
 function GenerateCard(props)
 {
 	
-	const product = props.product;
+	const product = props.product || {};
 	
 	console.log(product);
 	
-	return (<div className="col col-sizing">  
-        <div className="card card-sizing">
+	return (<div className=" col-sizing">  
+        <div className="card card-sizing" style={{border: "0px"}}>
 			<div className="text-center card-img-top" style={{height: "250px"}}>
 				<img src={product["image-url"]} className="card-img" alt="..." />
             </div>
@@ -49,12 +45,12 @@ function GenerateCard(props)
 					<span className="card-text" style={{color: "orange"}}>
                         <GenerateStars score={product["review-score"]} />
                     </span>
-                    <div className="card-text">${product.price.toFixed(2)}</div>
+                    <div className="card-text">${product.price}</div>
                     <div className="" >Qty: {product.quantity}</div>
 					<br />
-					<div style={{display: "flex", "justify-content": "space-around"}}>
-						<button className="btn btn-primary" onClick={() => RemoveFromCart(product["product-id"])}>See more</button>
-						<button className="btn btn-success" onClick={() => AddToCart(product["product-id"])}>Add to Cart</button>
+					<div className="btn-group" role="group" style={{display: "flex", "justify-content": "space-around"}}>
+						<button className="btn btn-primary" onClick={() => RemoveFromCart(product.name)}>See more</button>
+						<button className="btn btn-success" onClick={() => AddToCart(product.name,product.price)}>Add to Cart</button>
 					</div>
             </div>
         </div>
@@ -74,12 +70,14 @@ function CardTable(props)
 
 	let ret = [];
 
-	for(let i = start; i < (start + num); i++)
+	const end = ( (start + num) > products.length) ? products.length : (start + num);
+
+	for(let i = start; i < end; i++)
 	{
 		ret.push( <GenerateCard key={i} product={products[i]} /> );
 	}
 	
-	return  (<div className="row card-pack" id="productDisplay">
+	return  (<div className=" card-pack " id="productDisplay">
 				{ret}
 			</div>);
 	}

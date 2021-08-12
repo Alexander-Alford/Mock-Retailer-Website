@@ -9,7 +9,7 @@ function Footer(props)
 	return (
 	
 	
-	<div className="footer" style={(state === "Sign On") ? {position: "absolute"} : {position: "static"}}>© {date.getFullYear()}</div>
+	<div className="footer" style={(state !== "Product Showcase") ? {position: "absolute"} : {position: "static"}}>© {date.getFullYear()}, Fordington.com, Inc. or its affiliates</div>
 	
 	);
 }

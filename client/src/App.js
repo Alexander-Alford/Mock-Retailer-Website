@@ -3,8 +3,8 @@ import CardTable from './card.js';
 import Header from './header.js';
 import Footer from './footer.js';
 import SignOnPage from './signOn';
-
-
+import {RenderApp} from './index.js';
+import {CartPage} from './cart.js';
 
 export var flags = {
 		isSignedIn: false,
@@ -12,9 +12,15 @@ export var flags = {
 		numberOfCartItems: 0,
 		productPageNumber: 0,
 		websiteState: "Product Showcase",
-		catalogStartIndex: 1,
+		catalogStartIndex: 0,
 		catalogLoadNum: 8
 	};
+
+export function ChangePage(page)
+{
+	flags.websiteState = page;
+	RenderApp();
+}
 
 function App() {
   
@@ -28,6 +34,7 @@ function App() {
         .then((data) => setData(data));
     }, []);
   
+	
     
   
 return (
@@ -35,11 +42,15 @@ return (
     <div id="application">
         <Header flags={flags} />
 		
+		
 		<div className="container-fluid" id="center-piece">
           <div className="main-content">
 			{(!data) ? "Loading..." : <CardTable productCollection={data} flags={flags}/>}
 		  
 		  <SignOnPage flags={flags}/>
+		  <CartPage flags={flags}/>
+		  
+		  
 		  </div>
 		</div>
 			

@@ -46,11 +46,27 @@ description: String,
 
 const productModel = mongoose.model('Product', productSchema, productCollection)
 
-productModel.find((err, products) => {
-    if (err) return console.error(err);
-    
-    collectionData = products;
-})
+function FindProductsInCategory(categ = "")
+{
+	let testr = { category: categ};
+	
+	if(!categ)
+	{
+		testr = null;
+	}	
+	
+	productModel.find(testr ,(err, products) => {
+		if (err) 
+		{
+		return console.error(err);
+		}
+			
+		collectionData = products;
+		})
+	
+}
+
+FindProductsInCategory("");
 //End of database setup.
 
 
@@ -62,6 +78,12 @@ app.get("/api", (req, res) => {
       res.json(collectionData); 
 });
 
+app.put("/", (req, res) => {
+	var category = req.body.categ;
+	FindProductsInCategory(category);
+	res.json(collectionData);
+	console.log(category + " requested from server.");
+});
 
 app.listen(port, () => {
     console.log('Server is running on port ' + port);
