@@ -56,14 +56,15 @@ html,body{
 
 .card-sizing{
      margin: 20px auto; 
-    /* width: 18%; */
+    /* width: 18%; 
     min-width: 18rem;
     max-width: 18rem;
-	/*height: 300px;*/
+	height: 300px;*/
+
 }
 
 .col-sizing{
-	height: 500px;
+	
 }
 
 .card-img{
@@ -127,3 +128,29 @@ html,body{
 .cart-list-piece{
 	width: 200px;
 }
+
+.dropdown
+{
+	width: 100%;
+	cursor: pointer;
+}
+
+:checked + span{
+	background: #adb5bd ;
+}
+
+.search-btn{
+	border-color: #04009A;
+	color: #04009A;
+	box-shadow: #04009A;
+}
+
+.search-btn:hover{
+	background: #04009A;
+	border-color: #04009A;
+}
+
+.no-shadow:hover, .no-shadow:focus, .no-shadow:active{
+	box-shadow: none;
+}
+

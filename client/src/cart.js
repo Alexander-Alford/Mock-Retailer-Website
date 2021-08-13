@@ -1,12 +1,28 @@
 import React, {useState, useEffect} from "react";
 import {flags} from './App.js';
+import {ChangePage} from './App.js';
 
 export var Cart = {};
+
 
 function ChangeInnerHTML(id, replacement)
 {
 	const elem = document.getElementById(id);
+	
+	if(elem){
 	elem.innerHTML = replacement;
+	}
+}
+
+function GetTotalPrice()
+{
+	let ret = 0;
+	
+	Object.entries(Cart).forEach(([key, [num, val]]) => ret += (num*val));
+	
+	ChangeInnerHTML("total-price", ("$" + ret));
+	
+	return ret;
 }
 
 function CartItemsNumber()
@@ -100,8 +116,8 @@ export function CartPage(props)
 				<span className="cart-list-piece">${price}</span>
 				<span style={{width: "50px"}}><span className="badge bg-primary rounded-pill" id={"item-" + key}>{num}</span></span>
 					<div className="btn-group" role="group" aria-label="Basic example">
-					<button type="button" class="btn btn-danger btn-sm cart-page-btn" onClick={ () => { CartListButton("sub", key, price) } }>-</button>
-					<button type="button" class="btn btn-primary btn-sm cart-page-btn" onClick={ () => { CartListButton("add", key, price) } }>+</button>
+					<button type="button" class="btn btn-danger btn-sm cart-page-btn" onClick={ () => { CartListButton("sub", key, price); GetTotalPrice() } }>-</button>
+					<button type="button" class="btn btn-primary btn-sm cart-page-btn" onClick={ () => { CartListButton("add", key, price); GetTotalPrice() } }>+</button>
 					</div>
 			</li>) ); 
 			
@@ -115,8 +131,13 @@ export function CartPage(props)
 		{cartItems}
 		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
 		Total Price
-		<span>{}</span>
+		<span id="total-price">${GetTotalPrice()}</span>
 		</li>
+		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
+		<button className="btn btn-success"><i class="fas fa-money-check"></i> Checkout Items</button>
+		<button className="btn btn-primary" onClick={() => {ChangePage("Product Showcase")}}>Back</button>
+		</li>
+		
 	</ul>);
 	}
 		

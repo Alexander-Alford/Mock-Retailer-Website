@@ -1,8 +1,8 @@
 import React from "react";
-import {flags, ChangePage} from './App.js';
+import {flags, ChangePage, UpdateCatalog} from './App.js';
 import CartItemsNumber from './cart.js';
 import {Cart} from './cart.js';
-import {NavbarCatalogSelector} from './http.js';
+import {CatalogSelector} from './http.js';
 
 
 
@@ -10,6 +10,8 @@ import {NavbarCatalogSelector} from './http.js';
 
 function Navbar(props)
 {
+	const CatUp = function(choice){props.getData(CatalogSelector(choice))};
+	
 	if((props.state === "Product Showcase")){
 	return(
 	<nav className="navbar navbar-expand-lg navbar-dark navigation-bar" style={{width: "100%"}}>
@@ -20,25 +22,25 @@ function Navbar(props)
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						
 						 <li className="nav-item">
-                        <a className="nav-link active" href="#">All</a>
+                        <a className="nav-link active" href="#" onClick={() => { CatUp("") }}>All</a>
                       </li>
                       <li className="nav-item">
-                        <button className="nav-link active" onClick={() => {NavbarCatalogSelector("mammal")}}>Mammals</button>
+                        <a href="#" className="nav-link active" onClick={() => { CatUp("mammal") }}>Mammals</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" href="#">Reptiles</a>
+                        <a className="nav-link active" href="#" onClick={() => { CatUp("reptile") }}>Reptiles</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" href="#">Fish</a>
+                        <a className="nav-link active" href="#" onClick={() => { CatUp("fish") }}>Fish</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" href="#">Birds</a>
+                        <a className="nav-link active" href="#" onClick={() => { CatUp("bird") }}>Birds</a>
                       </li>
 					   <li className="nav-item">
-                        <a className="nav-link active" href="#">Insects</a>
+                        <a className="nav-link active" href="#" onClick={() => { CatUp("insect") }}>Insects</a>
                       </li>
 					   <li className="nav-item">
-                        <a className="nav-link active" href="#">Products</a>
+                        <a className="nav-link active" href="#" onClick={() => { CatUp("product") }}>Products</a>
                       </li>
                       <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,23 +54,34 @@ function Navbar(props)
                         </ul>
                       </li>
                       <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       
+					   <span className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Display
-                        </a>
+                        </span>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a className="dropdown-item" href="#">10 Items</a></li>
-                          <li><a className="dropdown-item" href="#">20 Items</a></li>
                           <li>
-                            <a className="dropdown-item" href="#">
-                              <input type="radio" className="btn-check" name="options-outlined" id="success-outlined" autoComplete="off" />
-                              <label className="" for="danger-outlined">30 Items</label>
-                            </a>
+                              <label for="10-check" className="dropdown">
+								<input type="radio" className="btn-check" name="item-num-opt" id="10-check" />
+								<span className="dropdown-item">10 Items</span>
+                              </label>
                           </li>
                           <li>
-                            
-                              <input type="radio" className="dropdown-item btn-check " name="options-outlined" id="success" autoComplete="off" checked />
-                              <label className="btn btn-outline-success" for="success-outlined">40 Items</label>
-                            
+                              <label for="20-check" className="dropdown">
+								<input type="radio" className="btn-check" name="item-num-opt" id="20-check" />
+								<span className="dropdown-item">20 Items</span>
+                              </label>
+                          </li>
+                          <li>
+                              <label for="30-check" className="dropdown">
+								<input type="radio" className="btn-check" name="item-num-opt" id="30-check" />
+								<span className="dropdown-item">30 Items</span>
+                              </label>
+                          </li>
+                          <li>
+                              <label for="40-check" className="dropdown">
+								<input type="radio" className="btn-check" name="item-num-opt" id="40-check" />
+								<span className="dropdown-item">40 Items</span>
+                              </label>
                           </li>
 
                         </ul>
@@ -78,7 +91,7 @@ function Navbar(props)
                     </ul>
                     <form className="d-flex">
                       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="product-search" />
-                      <button className="btn btn-outline-success" type="submit">Search</button>
+                      <button className="btn btn-outline-primary search-btn no-shadow test" type="submit">Search</button>
                     </form>
                   </div>
                 </div>
@@ -157,7 +170,7 @@ function Header(props)
     </div>
 	
 		
-			<Navbar state={state} />    
+			<Navbar state={state} getData={props.getData} data={props.data} />    
 				
 </div>
 	);

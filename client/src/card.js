@@ -19,9 +19,13 @@ function GenerateStars(props){
 	
 	if(score%2 > 0)
 	{
-	stars.push(<i key={i} className="fas fa-star-half"></i>);
+	stars.push(<i key={i} className="fas fa-star-half-alt"></i>);
 	}
 	
+	for(i = (parseInt(score/2) + score%2); i < 5; i++)
+	{
+	stars.push(<i key={i} className="far fa-star"></i>);
+	}
 
 	return <div>{stars}</div>;
 }
@@ -33,9 +37,9 @@ function GenerateCard(props)
 	
 	const product = props.product || {};
 	
-	console.log(product);
+
 	
-	return (<div className=" col-sizing">  
+	return (<div className="col-12 col-sm-6 col-md-4 col-lg-3 col-sizing">  
         <div className="card card-sizing" style={{border: "0px"}}>
 			<div className="text-center card-img-top" style={{height: "250px"}}>
 				<img src={product["image-url"]} className="card-img" alt="..." />
@@ -49,8 +53,8 @@ function GenerateCard(props)
                     <div className="" >Qty: {product.quantity}</div>
 					<br />
 					<div className="btn-group" role="group" style={{display: "flex", "justify-content": "space-around"}}>
-						<button className="btn btn-primary" onClick={() => RemoveFromCart(product.name)}>See more</button>
-						<button className="btn btn-success" onClick={() => AddToCart(product.name,product.price)}>Add to Cart</button>
+						<button className="btn btn-primary" onClick={() => RemoveFromCart(product.name)}><i class="fas fa-align-justify"></i> See more</button>
+						<button className="btn btn-success" onClick={() => AddToCart(product.name,product.price)}><i className="fas fa-tags"></i> Add to Cart</button>
 					</div>
             </div>
         </div>
@@ -77,7 +81,7 @@ function CardTable(props)
 		ret.push( <GenerateCard key={i} product={products[i]} /> );
 	}
 	
-	return  (<div className=" card-pack " id="productDisplay">
+	return  (<div className="row row-cols-auto card-pack " id="productDisplay">
 				{ret}
 			</div>);
 	}

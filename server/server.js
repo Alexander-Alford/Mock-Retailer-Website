@@ -10,6 +10,7 @@ const app = express();
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
 app.use(express.static('./public'));
 
 
@@ -33,15 +34,15 @@ db.once("open", () => {
 
 })
 
- const productSchema = new mongoose.Schema({
-name: String,
-category: String,
-productid: Number,
-quantity: Number,
-price: Number,
-'review-score': Number,
-description: String,
-'image-url': String
+const productSchema = new mongoose.Schema({
+	name: String,
+	category: String,
+	productid: Number,
+	quantity: Number,
+	price: Number,
+	'review-score': Number,
+	description: String,
+	'image-url': String
  });
 
 const productModel = mongoose.model('Product', productSchema, productCollection)
@@ -62,6 +63,7 @@ function FindProductsInCategory(categ = "")
 		}
 			
 		collectionData = products;
+		console.log(collectionData);
 		})
 	
 }
@@ -78,11 +80,13 @@ app.get("/api", (req, res) => {
       res.json(collectionData); 
 });
 
-app.put("/", (req, res) => {
-	var category = req.body.categ;
+app.post("/api", (req, res) => {
+	var category = req.body.category;
 	FindProductsInCategory(category);
+	/*console.log(collectionData);*/
 	res.json(collectionData);
-	console.log(category + " requested from server.");
+	console.log(req.body);
+	console.log(category + " category requested from server.");
 });
 
 app.listen(port, () => {
