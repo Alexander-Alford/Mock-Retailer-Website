@@ -8,8 +8,9 @@ function Footer(props)
 	
 	return (
 	
+	/*style={(state === "Product Showcase") ? {position: "fixed"} : {position: "fixed"}}*/
 	
-	<div className="footer" style={(state === "Product Showcase") ? {position: "static"} : {position: "absolute"}}>© {date.getFullYear()}, Fordington.com, Inc. or its affiliates</div>
+	<div className="footer" >© {date.getFullYear()}, Fordington.com, Inc. or its affiliates</div>
 	
 	);
 }

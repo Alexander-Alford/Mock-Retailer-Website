@@ -1,13 +1,7 @@
 
 
-
-
-export function CatalogSelector(input)
+function SendRecieveJSON(data)
 {
-
-const data = { category: input };
-
-
 fetch("/api", {
   method: 'POST', 
   headers: {
@@ -21,14 +15,18 @@ fetch("/api", {
 .catch((error) => { console.error('Error:', error) })
 }
 
-
-
-export function Tester(input)
+export function CatalogSelector(input)
 {
-	
-fetch('/api')
-  .then(response => response.json())
-  .then(data => console.log(data));
-	
-	
+const data = { category: input };
+
+return SendRecieveJSON(data);
 }
+
+export function NameSelector(input)
+{
+const data = { name: input };
+
+return SendRecieveJSON(data); 	
+}
+
+

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import {flags} from './App.js';
-import {ChangePage} from './App.js';
+import {flags, ChangePage} from './App.js';
+import {OrderPage} from './order.js';
 
 export var Cart = {};
 
@@ -134,11 +134,15 @@ export function CartPage(props)
 		<span id="total-price">${GetTotalPrice()}</span>
 		</li>
 		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
-		<button className="btn btn-success"><i class="fas fa-money-check"></i> Checkout Items</button>
 		<button className="btn btn-primary" onClick={() => {ChangePage("Product Showcase")}}>Back</button>
+		<button className="btn btn-success" onClick={() => {ChangePage("Orders")}}><i class="fas fa-money-check"></i> Checkout Items</button>
 		</li>
 		
 	</ul>);
+	}
+	else if(state === "Orders")
+	{
+		return( <OrderPage flags={flags} objArr={[Cart]} /> );
 	}
 		
 	return null;	

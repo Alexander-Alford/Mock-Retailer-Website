@@ -2,7 +2,7 @@ import React from "react";
 import {flags, ChangePage, UpdateCatalog} from './App.js';
 import CartItemsNumber from './cart.js';
 import {Cart} from './cart.js';
-import {CatalogSelector} from './http.js';
+import {CatalogSelector, NameSelector} from './http.js';
 
 
 
@@ -11,6 +11,9 @@ import {CatalogSelector} from './http.js';
 function Navbar(props)
 {
 	const CatUp = function(choice){props.getData(CatalogSelector(choice))};
+	const NamUp = function() {props.getData(NameSelector(document.getElementById("product-search").value))};
+	const toLoad = props.flags.catalogLoadNum;
+	const loadCards = function(num){props.flags.catalogLoadNum = num; ChangePage("Product Showcase")};
 	
 	if((props.state === "Product Showcase")){
 	return(
@@ -59,27 +62,27 @@ function Navbar(props)
                           Display
                         </span>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li>
+                          <li onClick={() => {loadCards(10)}}>
                               <label for="10-check" className="dropdown">
-								<input type="radio" className="btn-check" name="item-num-opt" id="10-check" />
+								<input type="radio" className="btn-check" name="item-num-opt" id="10-check" checked={(toLoad === 10) ? true : false}/>
 								<span className="dropdown-item">10 Items</span>
                               </label>
                           </li>
-                          <li>
+                          <li onClick={() => {loadCards(20)}}>
                               <label for="20-check" className="dropdown">
-								<input type="radio" className="btn-check" name="item-num-opt" id="20-check" />
+								<input type="radio" className="btn-check" name="item-num-opt" id="20-check" checked={(toLoad === 20) ? true : false}/>
 								<span className="dropdown-item">20 Items</span>
                               </label>
                           </li>
-                          <li>
+                          <li onClick={() => {loadCards(30)}}>
                               <label for="30-check" className="dropdown">
-								<input type="radio" className="btn-check" name="item-num-opt" id="30-check" />
+								<input type="radio" className="btn-check" name="item-num-opt" id="30-check" checked={(toLoad === 30) ? true : false}/>
 								<span className="dropdown-item">30 Items</span>
                               </label>
                           </li>
-                          <li>
+                          <li onClick={() => {loadCards(40)}}>
                               <label for="40-check" className="dropdown">
-								<input type="radio" className="btn-check" name="item-num-opt" id="40-check" />
+								<input type="radio" className="btn-check" name="item-num-opt" id="40-check" checked={(toLoad === 40) ? true : false}/>
 								<span className="dropdown-item">40 Items</span>
                               </label>
                           </li>
@@ -90,8 +93,8 @@ function Navbar(props)
 
                     </ul>
                     <form className="d-flex">
-                      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="product-search" />
-                      <button className="btn btn-outline-primary search-btn no-shadow test" type="submit">Search</button>
+                      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="product-search" maxlength="100" />
+                      <button className="btn btn-outline-primary search-btn no-shadow" onClick={ () => {NamUp()} }>Search</button>
                     </form>
                   </div>
                 </div>
@@ -170,7 +173,7 @@ function Header(props)
     </div>
 	
 		
-			<Navbar state={state} getData={props.getData} data={props.data} />    
+			<Navbar state={state} getData={props.getData} data={props.data} flags={props.flags}/>    
 				
 </div>
 	);
