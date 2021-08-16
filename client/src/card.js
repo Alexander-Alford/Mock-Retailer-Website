@@ -1,10 +1,11 @@
 import React from "react";
 import {Cart, AddToCart, RemoveFromCart} from './cart.js';
-
-
+import {ProductPopUp} from './product.js';
+import {flags} from './App.js';
+import {RenderApp} from './index.js';
 
 //Funciton generates 5-star review icons based on review score.
-function GenerateStars(props){
+export function GenerateStars(props){
 	//Score ranges from 0-10.
 	const score = props.score;
 
@@ -30,13 +31,20 @@ function GenerateStars(props){
 	return <div>{stars}</div>;
 }
 
+function SetPopUp(id)
+{
+console.log("Given prod id is " + id);
+flags.popUpFlag = true; 
+flags.popUpProd = id; 
+RenderApp()	
+}
 
 
 function GenerateCard(props)
 {
 	
 	const product = props.product || {};
-	
+	const prodID = product["product-id"];
 
 	
 	return (<div className="col-12 col-sm-6 col-md-4 col-lg-3 col-sizing">  
@@ -53,7 +61,7 @@ function GenerateCard(props)
                     <div className="" >Qty: {product.quantity}</div>
 					<br />
 					<div className="btn-group" role="group" style={{display: "flex", "justify-content": "space-around"}}>
-						<button className="btn btn-primary" onClick={() => RemoveFromCart(product.name)}><i class="fas fa-align-justify"></i> See more</button>
+						<button className="btn btn-primary" onClick={() => SetPopUp(prodID)}><i class="fas fa-align-justify"></i> See more</button>
 						<button className="btn btn-success" onClick={() => AddToCart(product.name,product.price)}><i className="fas fa-tags"></i> Add to Cart</button>
 					</div>
             </div>
@@ -83,6 +91,7 @@ function CardTable(props)
 	
 	return  (<div className="row row-cols-auto card-pack " id="productDisplay">
 				{ret}
+				<ProductPopUp flags={props.flags} prods={products} />
 			</div>);
 	}
 	

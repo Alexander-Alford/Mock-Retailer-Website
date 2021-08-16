@@ -4,6 +4,11 @@ import {OrderPage} from './order.js';
 
 export var Cart = {};
 
+export function EmptyCart()
+{
+	Cart = {};
+	flags.numberOfCartItems = 0;
+}
 
 function ChangeInnerHTML(id, replacement)
 {
@@ -14,15 +19,18 @@ function ChangeInnerHTML(id, replacement)
 	}
 }
 
-function GetTotalPrice()
+export function GetTotalPrice(obj)
 {
 	let ret = 0;
 	
-	Object.entries(Cart).forEach(([key, [num, val]]) => ret += (num*val));
+	Object.entries(obj).forEach(([key, [num, val]]) => ret += (num*val));
 	
-	ChangeInnerHTML("total-price", ("$" + ret));
-	
-	return ret;
+	return ret.toFixed(2);
+}
+
+function UpdateCartTotalPrice()
+{
+	ChangeInnerHTML("total-price", ("$" + GetTotalPrice(Cart)));
 }
 
 function CartItemsNumber()
@@ -113,16 +121,17 @@ export function CartPage(props)
 			cartItems.push(
 			<li className="list-group-item d-flex justify-content-between align-items-center gx-5" id={key + "-holder"}>
 				<span className="cart-list-piece">{key}</span>
-				<span className="cart-list-piece">${price}</span>
+				<span className="cart-list-piece">${price.toFixed(2)}</span>
 				<span style={{width: "50px"}}><span className="badge bg-primary rounded-pill" id={"item-" + key}>{num}</span></span>
 					<div className="btn-group" role="group" aria-label="Basic example">
-					<button type="button" class="btn btn-danger btn-sm cart-page-btn" onClick={ () => { CartListButton("sub", key, price); GetTotalPrice() } }>-</button>
-					<button type="button" class="btn btn-primary btn-sm cart-page-btn" onClick={ () => { CartListButton("add", key, price); GetTotalPrice() } }>+</button>
+					<button type="button" class="btn btn-danger btn-sm cart-page-btn" onClick={ () => { CartListButton("sub", key, price); UpdateCartTotalPrice() } }>-</button>
+					<button type="button" class="btn btn-primary btn-sm cart-page-btn" onClick={ () => { CartListButton("add", key, price); UpdateCartTotalPrice() } }>+</button>
 					</div>
 			</li>) ); 
 			
 		
 	return(
+	<div style={{padding: "30px 0px"}}>
 	<ul className="list-group cart-list">
 		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
 		Your Cart
@@ -131,14 +140,15 @@ export function CartPage(props)
 		{cartItems}
 		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
 		Total Price
-		<span id="total-price">${GetTotalPrice()}</span>
+		<span id="total-price">${GetTotalPrice(Cart)}</span>
 		</li>
 		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
 		<button className="btn btn-primary" onClick={() => {ChangePage("Product Showcase")}}>Back</button>
 		<button className="btn btn-success" onClick={() => {ChangePage("Orders")}}><i class="fas fa-money-check"></i> Checkout Items</button>
 		</li>
 		
-	</ul>);
+	</ul>
+	</div>);
 	}
 	else if(state === "Orders")
 	{

@@ -45,7 +45,7 @@ function Navbar(props)
 					   <li className="nav-item">
                         <a className="nav-link active" href="#" onClick={() => { CatUp("product") }}>Products</a>
                       </li>
-                      <li className="nav-item dropdown">
+                      {/* <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Order
                         </a>
@@ -55,10 +55,10 @@ function Navbar(props)
                           <li><hr className="dropdown-divider" /></li>
                           <li><a className="dropdown-item" href="#">Something else here</a></li>
                         </ul>
-                      </li>
+                      </li> */}
                       <li className="nav-item dropdown">
                        
-					   <span className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					   <span className="nav-link dropdown-toggle" style={{color: "#FFFFFF"}} id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Display
                         </span>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -92,7 +92,7 @@ function Navbar(props)
                       
 
                     </ul>
-                    <form className="d-flex">
+                    <form className="d-flex" action="javascript:void(0);">
                       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="product-search" maxlength="100" />
                       <button className="btn btn-outline-primary search-btn no-shadow" onClick={ () => {NamUp()} }>Search</button>
                     </form>

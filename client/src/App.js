@@ -7,6 +7,8 @@ import {RenderApp} from './index.js';
 import {CartPage} from './cart.js';
 import {CatalogSelector} from './http.js';
 
+
+
 export var flags = {
 		isSignedIn: false,
 		userName: "",
@@ -14,7 +16,9 @@ export var flags = {
 		productPageNumber: 0,
 		websiteState: "Product Showcase",
 		catalogStartIndex: 0,
-		catalogLoadNum: 10
+		catalogLoadNum: 10,
+		popUpFlag: false,
+		popUpProd: ""
 	};
 
 
