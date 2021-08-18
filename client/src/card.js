@@ -1,5 +1,5 @@
 import React from "react";
-import {Cart, AddToCart, RemoveFromCart} from './cart.js';
+import {AddToCart} from './cart.js';
 import {ProductPopUp} from './product.js';
 import {flags} from './App.js';
 import {RenderApp} from './index.js';
@@ -33,7 +33,6 @@ export function GenerateStars(props){
 
 function SetPopUp(id)
 {
-console.log("Given prod id is " + id);
 flags.popUpFlag = true; 
 flags.popUpProd = id; 
 RenderApp()	
@@ -60,8 +59,8 @@ function GenerateCard(props)
                     <div className="card-text">${product.price}</div>
                     <div className="" >Qty: {product.quantity}</div>
 					<br />
-					<div className="btn-group" role="group" style={{display: "flex", "justify-content": "space-around"}}>
-						<button className="btn btn-primary" onClick={() => SetPopUp(prodID)}><i class="fas fa-align-justify"></i> See more</button>
+					<div className="btn-group" role="group" style={{display: "flex", justifyContent: "space-around"}}>
+						<button className="btn btn-primary" onClick={() => SetPopUp(prodID)}><i className="fas fa-align-justify"></i> See more</button>
 						<button className="btn btn-success" onClick={() => AddToCart(product.name,product.price)}><i className="fas fa-tags"></i> Add to Cart</button>
 					</div>
             </div>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {flags, ChangePage} from './App.js';
 import {OrderPage} from './order.js';
 
@@ -57,8 +57,6 @@ export function AddToCart(name, price)
 	
 	ChangeInnerHTML("cart", flags.numberOfCartItems);
 	
-	console.log(flags.numberOfCartItems);
-	console.log(Cart);
 }
 
 export function RemoveFromCart(name)
@@ -124,8 +122,8 @@ export function CartPage(props)
 				<span className="cart-list-piece">${price.toFixed(2)}</span>
 				<span style={{width: "50px"}}><span className="badge bg-primary rounded-pill" id={"item-" + key}>{num}</span></span>
 					<div className="btn-group" role="group" aria-label="Basic example">
-					<button type="button" class="btn btn-danger btn-sm cart-page-btn" onClick={ () => { CartListButton("sub", key, price); UpdateCartTotalPrice() } }>-</button>
-					<button type="button" class="btn btn-primary btn-sm cart-page-btn" onClick={ () => { CartListButton("add", key, price); UpdateCartTotalPrice() } }>+</button>
+					<button type="button" className="btn btn-danger btn-sm cart-page-btn" onClick={ () => { CartListButton("sub", key, price); UpdateCartTotalPrice() } }>-</button>
+					<button type="button" className="btn btn-primary btn-sm cart-page-btn" onClick={ () => { CartListButton("add", key, price); UpdateCartTotalPrice() } }>+</button>
 					</div>
 			</li>) ); 
 			
@@ -144,7 +142,7 @@ export function CartPage(props)
 		</li>
 		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
 		<button className="btn btn-primary" onClick={() => {ChangePage("Product Showcase")}}>Back</button>
-		<button className="btn btn-success" onClick={() => {ChangePage("Orders")}}><i class="fas fa-money-check"></i> Checkout Items</button>
+		<button className="btn btn-success" onClick={() => {ChangePage("Orders")}}><i className="fas fa-money-check"></i> Checkout Items</button>
 		</li>
 		
 	</ul>

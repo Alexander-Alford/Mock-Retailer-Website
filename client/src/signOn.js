@@ -13,18 +13,15 @@ function SignOnPage(props)
 	<div>
 	<form className="sign-in-form">
   <div className="form-group">
-    <label for="emailInput"><i class="fas fa-at"></i> Email address</label>
+    <label for="emailInput"><i className="fas fa-at"></i> Email address</label>
     <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Email address" />
   </div>
   <div className="form-group">
-    <label for="passInput"><i class="fas fa-key"></i> Password</label>
+    <label for="passInput"><i className="fas fa-key"></i> Password</label>
     <input type="password" className="form-control" id="passInput" placeholder="Password" />
-		{(state === "Register") ? 
-		<small className="form-text text-muted">*Please do not use a real email address or a password you have used before.</small> : 
-		<small className="form-text text-muted"></small>
-		}
+		
   </div>
-  <div style={{"text-align": "center"}}>
+  <div style={{textAlign: "center"}}>
 	<button type="submit" className="btn btn-success" style={{"margin-top": "10px"}}>{buttonText}</button>
   </div>
 </form>

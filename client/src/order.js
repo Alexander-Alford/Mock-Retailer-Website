@@ -47,7 +47,7 @@ return (
 		<table className="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">Order # {props.orderNum}</th>
+					<th scope="col">Order {/*# {props.orderNum} */}</th>
 					<th scope="col">Item</th>
 					<th scope="col">Ship Qty</th>
 					<th scope="col">Price</th>
@@ -82,7 +82,7 @@ export function OrderPage(props)
 		if(state === "Orders")
 		{return(
 			<div className="container-fluid order">
-				<button className="btn btn-success" style={{"margin": "0px auto", "display": "block", "margin-bottom": "15px"}} onClick={ () => {EmptyCart(); ChangePage("Product Showcase")} }>Go back to front page</button>
+			{/*<button className="btn btn-success" style={{"margin": "0px auto", "display": "block", "margin-bottom": "15px"}} onClick={ () => {EmptyCart(); ChangePage("Product Showcase")} }>Go back to front page</button>*/}
 				{ret}
 				<button className="btn btn-success" style={{"margin": "0px auto", "display": "block"}} onClick={ () => {EmptyCart(); ChangePage("Product Showcase")} }>Go back to front page</button>
 				
