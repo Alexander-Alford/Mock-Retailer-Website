@@ -80,7 +80,7 @@ function Navbar(props)
                       
 
                     </ul>
-                    <form className="d-flex" >
+                    <form className="d-flex" action="" onSubmit={(e) => {e.preventDefault()}}>
                       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="product-search" maxLength="100" />
                       <button className="btn btn-outline-primary search-btn no-shadow" onClick={ () => {NamUp()} }>Search</button>
                     </form>
