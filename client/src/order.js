@@ -23,7 +23,7 @@ function GenerateRows(props)
 		
 		increm++;
 		rows.push(
-		<tr>
+		<tr key={name + "row"}>
 			<th scope="row">{increm}</th>
 			<td>{name}</td>
 			<td>{num}</td>
@@ -43,11 +43,11 @@ function Order(props)
 {
 	
 return (
-	<div style={{background: "#FFFFFF", "border-radius": "15px"}}>	
+	<div style={{background: "#FFFFFF", borderRadius: "15px"}} >	
 		<table className="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">Order {/*# {props.orderNum} */}</th>
+					<th scope="col">Order </th>
 					<th scope="col">Item</th>
 					<th scope="col">Ship Qty</th>
 					<th scope="col">Price</th>
@@ -76,15 +76,14 @@ export function OrderPage(props)
 	
 	for(let i = 0; i < objects.length; i++)
 		{
-		ret.push(<Order orderNum={i + 1} obj={objects[i]} />);
+		ret.push(<Order orderNum={i + 1} obj={objects[i]} key={"Order " + (i + 1)}/>);
 		}
 	
 		if(state === "Orders")
 		{return(
 			<div className="container-fluid order">
-			{/*<button className="btn btn-success" style={{"margin": "0px auto", "display": "block", "margin-bottom": "15px"}} onClick={ () => {EmptyCart(); ChangePage("Product Showcase")} }>Go back to front page</button>*/}
 				{ret}
-				<button className="btn btn-success" style={{"margin": "0px auto", "display": "block"}} onClick={ () => {EmptyCart(); ChangePage("Product Showcase")} }>Go back to front page</button>
+				<button className="btn btn-success" style={{margin: "0px auto", display: "block"}} onClick={ () => {EmptyCart(); ChangePage("Product Showcase")} }>Go back to front page</button>
 				
 			</div>);
 		

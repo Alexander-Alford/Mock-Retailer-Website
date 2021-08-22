@@ -1,7 +1,5 @@
 import React from "react";
-import {flags, ChangePage, UpdateCatalog} from './App.js';
-import CartItemsNumber from './cart.js';
-import {Cart} from './cart.js';
+import {ChangePage} from './App.js';
 import {CatalogSelector, NameSelector} from './http.js';
 
 
@@ -10,8 +8,8 @@ import {CatalogSelector, NameSelector} from './http.js';
 
 function Navbar(props)
 {
-	const CatUp = function(choice){props.getData(CatalogSelector(choice))};
-	const NamUp = function() {props.getData(NameSelector(document.getElementById("product-search").value))};
+	const CatUp = async (choice) => { props.getData( await CatalogSelector(choice)) };
+	const NamUp = async () => {props.getData(await NameSelector(document.getElementById("product-search").value))};
 	const toLoad = props.flags.catalogLoadNum;
 	const loadCards = function(num){props.flags.catalogLoadNum = num; ChangePage("Product Showcase")};
 	
@@ -25,25 +23,25 @@ function Navbar(props)
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						
 						 <li className="nav-item">
-                        <a className="nav-link active" href="#" onClick={() => { CatUp("") }}>All</a>
+                        <a className="nav-link active" href="#/All" onClick={() => { CatUp("") }}>All</a>
                       </li>
                       <li className="nav-item">
-                        <a href="#" className="nav-link active" onClick={() => { CatUp("mammal") }}>Mammals</a>
+                        <a href="#/Mammals" className="nav-link active" onClick={() => { CatUp("mammal") }}>Mammals</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" href="#" onClick={() => { CatUp("reptile") }}>Reptiles</a>
+                        <a className="nav-link active" href="#/Reptiles" onClick={() => { CatUp("reptile") }}>Reptiles</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" href="#" onClick={() => { CatUp("fish") }}>Fish</a>
+                        <a className="nav-link active" href="#/Fish" onClick={() => { CatUp("fish") }}>Fish</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" href="#" onClick={() => { CatUp("bird") }}>Birds</a>
+                        <a className="nav-link active" href="#/Birds" onClick={() => { CatUp("bird") }}>Birds</a>
                       </li>
 					   <li className="nav-item">
-                        <a className="nav-link active" href="#" onClick={() => { CatUp("insect") }}>Insects</a>
+                        <a className="nav-link active" href="#/Insects" onClick={() => { CatUp("insect") }}>Insects</a>
                       </li>
 					   <li className="nav-item">
-                        <a className="nav-link active" href="#" onClick={() => { CatUp("product") }}>Products</a>
+                        <a className="nav-link active" href="#/Products" onClick={() => { CatUp("product") }}>Products</a>
                       </li>
                       
                       <li className="nav-item dropdown">
@@ -58,22 +56,22 @@ function Navbar(props)
 								<span className="dropdown-item">10 Items</span>
                               </label>
                           </li>
+                          <li onClick={() => {loadCards(15)}}>
+                              <label htmlFor="15-check" className="dropdown">
+								<input type="radio" className="btn-check" name="item-num-opt" id="15-check" defaultChecked={(toLoad === 15) ? true : false}/>
+								<span className="dropdown-item">15 Items</span>
+                              </label>
+                          </li>
                           <li onClick={() => {loadCards(20)}}>
                               <label htmlFor="20-check" className="dropdown">
 								<input type="radio" className="btn-check" name="item-num-opt" id="20-check" defaultChecked={(toLoad === 20) ? true : false}/>
 								<span className="dropdown-item">20 Items</span>
                               </label>
                           </li>
-                          <li onClick={() => {loadCards(30)}}>
-                              <label htmlFor="30-check" className="dropdown">
-								<input type="radio" className="btn-check" name="item-num-opt" id="30-check" defaultChecked={(toLoad === 30) ? true : false}/>
-								<span className="dropdown-item">30 Items</span>
-                              </label>
-                          </li>
-                          <li onClick={() => {loadCards(40)}}>
-                              <label htmlFor="40-check" className="dropdown">
-								<input type="radio" className="btn-check" name="item-num-opt" id="40-check" defaultChecked={(toLoad === 40) ? true : false}/>
-								<span className="dropdown-item">40 Items</span>
+                          <li onClick={() => {loadCards(25)}}>
+                              <label htmlFor="25-check" className="dropdown">
+								<input type="radio" className="btn-check" name="item-num-opt" id="25-check" defaultChecked={(toLoad === 25) ? true : false}/>
+								<span className="dropdown-item">25 Items</span>
                               </label>
                           </li>
 
@@ -82,7 +80,7 @@ function Navbar(props)
                       
 
                     </ul>
-                    <form className="d-flex" action="javascript:void(0);">
+                    <form className="d-flex" >
                       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="product-search" maxLength="100" />
                       <button className="btn btn-outline-primary search-btn no-shadow" onClick={ () => {NamUp()} }>Search</button>
                     </form>

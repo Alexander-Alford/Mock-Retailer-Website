@@ -1,32 +1,39 @@
 
 
-function SendRecieveJSON(data)
+async function SendRecieveJSON(data)
 {
-fetch("/api", {
-  method: 'POST', 
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(data),
-})
-.then(response => response.json())
-.then(data => { console.log('Success:', data)})
-.then(() => {return data})
-.catch((error) => { console.error('Error:', error) })
+  const host = "/api";
+  const settings = {
+    method: 'PUT', 
+    headers: {'Content-Type': 'application/json',},
+    body: JSON.stringify(data),
+    }
+
+  let getFet = await fetch(host, settings)
+    .then(response => {return response.json()})
+    .catch(error => console.error('Error:', error));
+
+  return getFet;
 }
 
-export function CatalogSelector(input)
+export async function CatalogSelector(input)
 {
 const data = { category: input };
 
-return SendRecieveJSON(data);
+const recieve = await SendRecieveJSON(data);
+
+console.log(recieve);
+
+return recieve;
 }
 
-export function NameSelector(input)
+export async function NameSelector(input)
 {
 const data = { name: input };
 
-return SendRecieveJSON(data); 	
+const recieve = await SendRecieveJSON(data);
+
+return recieve; 	
 }
 
 

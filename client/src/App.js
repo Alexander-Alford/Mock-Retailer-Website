@@ -33,7 +33,7 @@ export function UpdateCatalog(newData)
 
 function Loading(props)
 {
-	return(<div className="container-fluid" style={{textAlign: "center", "margin": "100px 0px"}}>
+	return(<div className="container-fluid" style={{textAlign: "center", margin: "100px 0px"}}>
 			<i className="fas fa-sync fa-spin fa-10x"></i>
 			</div>
 			);
@@ -44,20 +44,25 @@ function Loading(props)
 
 function App() {
   
-  
     const [data, setData] = React.useState(null);
-  
-  	const UpdateData = (data) => {console.log(data); setData(data)};
-    
+
+	const UpdateData = (dat) => {setData(dat)};
+
+	/*
+	fetch("/api")
+	.then((res) => res.json())
+	.then((data) => setData(data));
+	*/
+
 	React.useEffect(() => {
-      setData(CatalogSelector(""));
+		
+		async function getInitData() {
+			let buf = await CatalogSelector("");
+			setData(buf);
+		}
+
+		getInitData();
     }, []);
-	
-	React.useEffect(() => {
-      fetch("/api")
-        .then((res) => res.json())
-        .then((data) => setData(data));
-    });
   
 
     

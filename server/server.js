@@ -48,51 +48,52 @@ const productSchema = new mongoose.Schema({
 const productModel = mongoose.model('Product', productSchema, productCollection)
 
 
+async function QueryData(query){
+	
+let prodProm = await productModel.find(query, (err, products) => {
+		if (err) 
+		{
+		return console.error(err);
+		}
+
+		return products;
+		});
+
+	/*console.log(prodProm);*/
+		return prodProm;
+}
+
+
+
 
 function FindProductsInCategory(cat)
 {
 	let query = (cat.category) ? cat : null;
 	
-	
 	console.log("Query: " + JSON.stringify(query));
 	
-	productModel.find(query ,(err, products) => {
-		if (err) 
-		{
-		return console.error(err);
-		}
-			
-		collectionData = products;
-		})
-	
+	return QueryData(query);
 }
 
 function FindProductsWithName(entry)
 {
 	let query = (entry.name) ? {name: {$regex: entry.name , $options: "i"}} : null;
 
-	console.log("Query: " + query);
+	console.log("Query: " + entry.name);
 
-	productModel.find(query, (err, products) => {
-		if(err) {return console.log(err);}
-		
-		collectionData = products;
-		})
+	return QueryData(query);
 }
 
 function TakeJSONInput(input)
 {
-	console.log("Input: " + JSON.stringify(input));
 	
 	if(input.hasOwnProperty('category'))
 	{
-		console.log("CATEGORY");
-		FindProductsInCategory(input);
+		return FindProductsInCategory(input);
 	}
 	else if(input.hasOwnProperty('name'))
 	{
-		console.log("NAME");
-		FindProductsWithName(input);
+		return FindProductsWithName(input);
 	}
 }
 
@@ -108,11 +109,15 @@ app.get("/api", (req, res) => {
       res.json(collectionData); 
 });
 
-app.post("/api", (req, res) => {
+app.put("/api", async (req, res, next) => {
 	var input = req.body;
-	console.log("Req.body: " + req.body);
-	TakeJSONInput(input);
-	res.json(collectionData);
+	TakeJSONInput(input)
+	.then((data) => {
+		res.json(data)}, reason =>{
+		res.send("Error! Could not retrieve data.")	
+		})
+	/*.then((data) => res.send(data))*/
+	.catch(next);
 	console.log(input + " requested from server.");
 });
 

@@ -117,7 +117,7 @@ export function CartPage(props)
 		
 		Object.entries(Cart).forEach( ([key, [num, price]]) => 
 			cartItems.push(
-			<li className="list-group-item d-flex justify-content-between align-items-center gx-5" id={key + "-holder"}>
+			<li className="list-group-item d-flex justify-content-between align-items-center gx-5" id={key + "-holder"} key={key}>
 				<span className="cart-list-piece">{key}</span>
 				<span className="cart-list-piece">${price.toFixed(2)}</span>
 				<span style={{width: "50px"}}><span className="badge bg-primary rounded-pill" id={"item-" + key}>{num}</span></span>
@@ -131,16 +131,16 @@ export function CartPage(props)
 	return(
 	<div style={{padding: "30px 0px"}}>
 	<ul className="list-group cart-list">
-		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
+		<li className="list-group-item d-flex justify-content-between align-items-center" style={{fontSize: "25px"}}>
 		Your Cart
 		<span className="badge bg-primary rounded-pill" id="cart">{CartItemsNumber()}</span>
 		</li>
 		{cartItems}
-		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
+		<li className="list-group-item d-flex justify-content-between align-items-center" style={{fontSize: "25px"}}>
 		Total Price
 		<span id="total-price">${GetTotalPrice(Cart)}</span>
 		</li>
-		<li className="list-group-item d-flex justify-content-between align-items-center" style={{"font-size": "25px"}}>
+		<li className="list-group-item d-flex justify-content-between align-items-center" style={{fontSize: "25px"}}>
 		<button className="btn btn-primary" onClick={() => {ChangePage("Product Showcase")}}>Back</button>
 		<button className="btn btn-success" onClick={() => {ChangePage("Orders")}}><i className="fas fa-money-check"></i> Checkout Items</button>
 		</li>
