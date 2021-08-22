@@ -22,8 +22,6 @@ const data = { category: input };
 
 const recieve = await SendRecieveJSON(data);
 
-console.log(recieve);
-
 return recieve;
 }
 

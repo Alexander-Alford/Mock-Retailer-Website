@@ -21,7 +21,7 @@ function SignOnPage(props)
 		
   </div>
   <div style={{textAlign: "center"}}>
-	<button type="submit" className="btn btn-success" style={{marginTop: "10px"}}>{buttonText}</button>
+	<button className="btn btn-success" style={{marginTop: "10px"}} onClick={() => {ChangePage("Product Showcase")}}>{buttonText}</button>
   </div>
 </form>
 	<div style={{"display": "flex"}}>

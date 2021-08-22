@@ -63,7 +63,7 @@ export function RemoveFromCart(name)
 {
 	if(!Cart[name])
 	{
-	console.log("Error! Cannot remove nothing from cart!");	
+	return;
 	}
 	else if(Cart[name][0] === 1)
 	{

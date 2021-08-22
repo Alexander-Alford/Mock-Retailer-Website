@@ -5,6 +5,7 @@ console.log("This is a test.")
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const app = express();
 
@@ -59,7 +60,6 @@ let prodProm = await productModel.find(query, (err, products) => {
 		return products;
 		});
 
-	/*console.log(prodProm);*/
 		return prodProm;
 }
 
@@ -105,8 +105,8 @@ FindProductsInCategory("");
 let port = process.env.PORT || 3001;
 
 
-app.get("/api", (req, res) => {
-      res.json(collectionData); 
+app.get("*", (req, res) => {
+	res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 app.put("/api", async (req, res, next) => {
@@ -116,9 +116,7 @@ app.put("/api", async (req, res, next) => {
 		res.json(data)}, reason =>{
 		res.send("Error! Could not retrieve data.")	
 		})
-	/*.then((data) => res.send(data))*/
 	.catch(next);
-	console.log(input + " requested from server.");
 });
 
 app.listen(port, () => {

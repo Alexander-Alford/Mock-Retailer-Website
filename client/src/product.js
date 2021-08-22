@@ -1,11 +1,13 @@
 import React from "react";
 import {AddToCart} from './cart.js';
 import {GenerateStars} from './card.js';
+import { RenderApp } from "./index.js";
 
 function UndoPopUp(flags)
 {
 	flags.popUpFlag = false;
 	flags.popUpProd = "";
+	RenderApp();
 }
 
 function GetProductByID(prodColl, id)
@@ -23,7 +25,7 @@ function GetProductByID(prodColl, id)
 
 export function ProductPopUp(props)
 {
-	
+
 	const products = props.prods;
 	const flags = props.flags;
 	
