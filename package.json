@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A mock retail website.",
   "main": "server/server.js",
-  "engines": "14.17.0",
+  "engines": {"node": "14.17.0"},
   "scripts": {
     "start": "node server/server.js",
     "build": "cd client && npm install && npm run build"
