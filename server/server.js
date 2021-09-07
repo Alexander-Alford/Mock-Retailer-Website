@@ -122,7 +122,7 @@ app.put("/api", async (req, res, next) => {
 app.listen(port, () => {
     console.log('Server is running on port ' + port);
 });
-//Emd of server setup.
+//End of server setup.
 
 
 

@@ -153,7 +153,7 @@ function Header(props)
 <div className="container-fluid header" id="header">
 	<div className="row align-items-center header-piece-first" style={{margin: "0px 0px"}}>
         <div className="col-8" id="branding">
-            <h1 className="display-4 header-comp-name">Fordington</h1>
+            <h1 className="display-4 header-comp-name">Mock Retailer</h1>
             <h2 className="lead">Your first delivery option.</h2>
         </div>
 			<SignRegister state={state} />	
