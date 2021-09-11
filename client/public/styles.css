@@ -1,7 +1,35 @@
+:root{
+	--color-1: #F3ECE3;
+	--color-2: #CCA991;
+	--color-3: #865738;
+	--color-4: #D4B494;
+}
+
+.btn-primary{
+	background: var(--color-3);
+	border-color: var(--color-3);
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus{
+	background: #663718;
+	border-color: #663718;
+	box-shadow: none;
+}
+
+.btn-success{
+	background: var(--color-2);
+	border-color: #AA8971;
+}
+.btn-success:hover, .btn-success:active, .btn-success:focus, .btn-success:active:focus{
+	background: #AA8971;
+	border-color: #AA8971;
+	box-shadow: none;
+}
+
+
 html,body{
 	min-height: 100vh;
 	height: 100vh;
-	background: #3EDBF0;
+	background: var(--color-1);
 }
 
 #root, #application{
@@ -22,20 +50,20 @@ html,body{
 }
 
 .header-piece-first{
-    background: #04009A;  
+    background: var(--color-3);  
 }
 
 .header-piece-second{
-    background: #77ACF1;
+    background: var(--color-2);
 }
 
 #center-piece{
-    background: #3EDBF0;
+    background: var(--color-1);
 	margin-bottom: 20px;
 }
 
 #application{
-	 background: #3EDBF0;
+	 background: var(--color-1);
 }
 
 .main-content{
@@ -54,7 +82,7 @@ html,body{
 }
 
 .navigation-bar{
-    background: #77ACF1;
+    background: var(--color-2);
 }
 
 .card-sizing{
@@ -86,7 +114,7 @@ html,body{
 
 .footer{
 	text-align: center;
-	background: #F0EBCC;
+	background: var(--color-4);
 	height: 25px;
 	bottom: 0;
 	left: 0;
@@ -95,7 +123,7 @@ html,body{
 }
 
 .sign-register-bar{
-	background: #77ACF1;
+	background: var(--color-2);
 	font-size: 25px;
 	padding: 10px 0px;
 	margin-bottom: 30px;
@@ -105,7 +133,7 @@ html,body{
 .sign-in-form{
 	max-width: 500px;
 	margin: 0px auto;
-	background: #F0EBCC;
+	background: var(--color-4);
 	padding: 10px;
 	border-radius: 5px;
 	height: 100%;
@@ -141,14 +169,14 @@ html,body{
 }
 
 .search-btn{
-	border-color: #04009A;
-	color: #04009A;
-	box-shadow: #04009A;
+	border-color: var(--color-3);
+	color: var(--color-3);
+	box-shadow: var(--color-3);
 }
 
 .search-btn:hover{
-	background: #04009A;
-	border-color: #04009A;
+	background: var(--color-3);
+	border-color: var(--color-3);
 }
 
 .no-shadow:hover, .no-shadow:focus, .no-shadow:active{

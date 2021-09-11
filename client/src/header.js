@@ -157,7 +157,7 @@ function Header(props)
 <div className="container-fluid header" id="header">
 	<div className="row align-items-center header-piece-first" style={{margin: "0px 0px", justifyContent: "space-between"}}>
         <div className="col-7" id="branding">
-            <h1 className="display-4 header-comp-name">eCommerce Retailer</h1>
+            <h1 className="display-4 header-comp-name">petShop</h1>
             <h2 className="lead">Your first delivery option.</h2>
         </div>
 			<SignRegister state={state} />	

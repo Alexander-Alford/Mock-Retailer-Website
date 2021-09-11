@@ -120,9 +120,9 @@ export function CartPage(props)
 			<li className="list-group-item d-flex justify-content-between align-items-center gx-5" id={key + "-holder"} key={key}>
 				<span className="cart-list-piece">{key}</span>
 				<span className="cart-list-piece">${price.toFixed(2)}</span>
-				<span style={{width: "50px"}}><span className="badge bg-primary rounded-pill" id={"item-" + key}>{num}</span></span>
+				<span style={{width: "50px"}}><span className="badge bg-success rounded-pill" id={"item-" + key}>{num}</span></span>
 					<div className="btn-group" role="group" aria-label="Basic example">
-					<button type="button" className="btn btn-danger btn-sm cart-page-btn" onClick={ () => { CartListButton("sub", key, price); UpdateCartTotalPrice() } }>-</button>
+					<button type="button" className="btn btn-success btn-sm cart-page-btn" onClick={ () => { CartListButton("sub", key, price); UpdateCartTotalPrice() } }>-</button>
 					<button type="button" className="btn btn-primary btn-sm cart-page-btn" onClick={ () => { CartListButton("add", key, price); UpdateCartTotalPrice() } }>+</button>
 					</div>
 			</li>) ); 
@@ -133,7 +133,7 @@ export function CartPage(props)
 	<ul className="list-group cart-list">
 		<li className="list-group-item d-flex justify-content-between align-items-center" style={{fontSize: "25px"}}>
 		Your Cart
-		<span className="badge bg-primary rounded-pill" id="cart">{CartItemsNumber()}</span>
+		<span className="badge bg-success rounded-pill" id="cart">{CartItemsNumber()}</span>
 		</li>
 		{cartItems}
 		<li className="list-group-item d-flex justify-content-between align-items-center" style={{fontSize: "25px"}}>
