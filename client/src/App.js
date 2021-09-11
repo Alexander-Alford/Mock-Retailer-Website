@@ -33,10 +33,15 @@ export function UpdateCatalog(newData)
 
 function Loading(props)
 {
+	if(props.flags.websiteState == "Product Showcase")
+	{
 	return(<div className="container-fluid" style={{textAlign: "center", margin: "100px 0px"}}>
 			<i className="fas fa-sync fa-spin fa-10x"></i>
 			</div>
 			);
+	}
+
+	return null;
 }
 
 
@@ -76,7 +81,7 @@ return (
 		<div className="container-fluid" id="center-piece">
           <div className="main-content">
 		  
-			{(!data) ? <Loading/> : <CardTable productCollection={data} flags={flags}/>}
+			{(!data) ? <Loading flags={flags}/> : <CardTable productCollection={data} flags={flags}/>}
 		  
 		  <SignOnPage flags={flags}/>
 		  <CartPage flags={flags}/>

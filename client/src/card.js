@@ -46,7 +46,7 @@ function GenerateCard(props)
 	const prodID = product["product-id"];
 
 	
-	return (<div className="col-12 col-sm-6 col-md-4 col-lg-3 col-sizing">  
+	return (<div className="col-12 col-sm-12 col-md-4 col-lg-3 col-sizing">  
         <div className="card card-sizing" style={{border: "0px"}}>
 			<div className="text-center card-img-top" style={{height: "250px"}}>
 				<img src={product["image-url"]} className="card-img" alt="..." />
