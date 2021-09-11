@@ -33,7 +33,7 @@ export function UpdateCatalog(newData)
 
 function Loading(props)
 {
-	if(props.flags.websiteState == "Product Showcase")
+	if(props.flags.websiteState === "Product Showcase")
 	{
 	return(<div className="container-fluid" style={{textAlign: "center", margin: "100px 0px"}}>
 			<i className="fas fa-sync fa-spin fa-10x"></i>

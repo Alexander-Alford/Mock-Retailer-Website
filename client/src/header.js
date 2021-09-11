@@ -18,8 +18,8 @@ function Navbar(props)
 	<nav className="navbar navbar-expand-lg navbar-dark navigation-bar" style={{width: "100%"}}>
         <div className="container-fluid  navigation-bar">
           
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -134,7 +134,7 @@ function CartDisplay(props)
 	if(props.state === "Product Showcase")
 	{
 		return(
-			<div className="col-2">
+			<div className="col-2 justify-content-end">
 				<button type="button" className="btn btn-outline-light btn-lg" onClick={() => {ChangePage("Cart")}}>
 					<i className="fas fa-shopping-cart"></i>
 					<span id="cart" style={{marginLeft: "10px"}}>{props.numInCart}</span>
@@ -155,7 +155,7 @@ function Header(props)
 	
 	return (
 <div className="container-fluid header" id="header">
-	<div className="row align-items-center header-piece-first" style={{margin: "0px 0px"}}>
+	<div className="row align-items-center header-piece-first" style={{margin: "0px 0px", justifyContent: "space-between"}}>
         <div className="col-7" id="branding">
             <h1 className="display-4 header-comp-name">eCommerce Retailer</h1>
             <h2 className="lead">Your first delivery option.</h2>

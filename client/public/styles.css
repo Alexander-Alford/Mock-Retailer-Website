@@ -238,4 +238,35 @@ html,body{
 	.cart-list{
 		width: 100%;
 	}
+
+	div.col-2, div.col-7{
+		padding: 0px;
+	}
+}
+
+@media only screen and (max-width: 400px){
+	
+	#branding > h1{
+		font-size: 17px;
+	}
+	#branding > h2{
+		font-size: 14px;
+	}
+
+
+	.header-piece-first > div > button{
+		font-size: 14px;
+	}
+
+	ul.cart-list > li{
+		padding: 2px 4px;
+	}
+
+	.table td, .table th{
+		padding: 2px;
+		font-size: 13px;
+	}
+
+	
+
 }
